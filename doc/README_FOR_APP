@@ -7,17 +7,16 @@ Run "rake doc:app" to generate API documentation for your models, controllers, h
 > - belongs_to
 >< - has and belongs to many
 
-users [id - full_name - email - password - address - city - state - zipcode - mobile - image - created_at - updated_at]
-< uploads [id - image - user_id - created_at - updated_at]
-< amenities
-< problems
-< ratings [amenity - property_management - neighbourhood]
-
 survey[id - name - description - status]
-< questions [id - text - options]
-< answers [id - choices]
+  < questions [id - text - options]
+  < answers [id - choices]
 
+users [id - full_name - email - password - address - city - state - zipcode - mobile]
+  < uploads [id - image - user_id - created_at - updated_at]
+  < amenities
+  < problems
+  < ratings [amenity - property_management - neighbourhood]
 
-questions [id - user_id - subtotal - shipping_charge - discount - total - payment_mode - address_line1 - address_line2 - city - country - status - uid - created_at - updated_at]
-  < answers [id - order_id - product_name - product_price - no_of_sets - total_artist_fee - created_at - updated_at]
-    < answer_images [id - line_item_id - image - gallery_item_id - artist_fee - source_type - order - created_at - updated_at]
+questions [id - text - options]
+  < answers [id - choices]
+    < answer_images [id - image]
