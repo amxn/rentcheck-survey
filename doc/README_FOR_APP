@@ -38,19 +38,19 @@ A: Save the survey at each step.
 
     user: :address (text), :city(string), :state(string), :zipcode(string), :name(string), :email(string)
 
-    :tenancy_duration, 
+    :tenancy_duration (string), 
 
-    variables: :lobby, :rooftop_patio, :common_area, :concierge, :maintenance_staff, :superintendants
+    variables: :lobby, :rooftop_patio, :common_area, :concierge, :maintenance_staff, :superintendants (boolean) or (1-10)
 
-    amenities: :washer_unit, :washer_building, :refrigerator, :microwave, :oven, :doorman, :elevator, :gym, :pool, :dishwasher, :heater_ac (boolean)
+    amenities: :washer_unit, :washer_building, :refrigerator, :microwave, :oven, :doorman, :elevator, :gym, :pool, :dishwasher, :heater_ac (boolean) or (1-10)
 
-    unit_condition: :room_condition, :bathroom_condition, :kitchen_condition
+    move_in_unit_condition: :room_condition, :bathroom_condition, :kitchen_condition (string)
 
     management: :response, :response_fix
 
     rating: :amenities, :property_management, :neighborhood (rating 1 - 5)
 
-    neighborhood: :neighborhood_like, :neighborhood_dislike, :neighborhood_surprise
+    neighborhood: :neighborhood_likes (text), :neighborhood_dislikes (text), :neighborhood_surprise (text)
 
     building_best: (text) building_worst: (text)
 
@@ -60,7 +60,7 @@ A: Save the survey at each step.
 
     :contact_willingness (boolean)
 
-    conclusion: :referral_likeliness, :user_comments, :user_images
+    conclusion: :referral_likeliness (string), :user_comments (text), :user_images (string)
 
 
 DB design till now:
