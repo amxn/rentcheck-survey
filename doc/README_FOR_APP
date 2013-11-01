@@ -22,4 +22,12 @@ users [id - full_name - email - password - address - city - state - zipcode - mo
 
 questions [id - text]
   < responses [id - choices]
+    < choices [id - text]
     < response_images [id - image]
+
+
+CONCERNS:
+--------
+
+The excel doc mentions that the user is created upon completing the survey, in this case, where would we be saving all the information collected during the survey if the creation of the user is differed till the end of the survey.
+
