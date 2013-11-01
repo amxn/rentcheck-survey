@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :address, :city, :email, :name, :password, :phone, :state, :zipcode
+  attr_accessible :email, :name, :password, :phone, :state, :zipcode, :address, :city
 
   has_one :survey
 
