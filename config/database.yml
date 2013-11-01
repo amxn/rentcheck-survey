@@ -8,12 +8,12 @@ base: &base
 
 development:
   <<: *base
-  database: blog_development
+  database: rentcheck_development
 
 test: &TEST
   <<: *base
-  database: blog_test
+  database: rentcheck_test
 
 staging:
   <<: *base
-  database: blog
+  database: rentcheck

@@ -6,12 +6,76 @@ Run "rake doc:app" to generate API documentation for your models, controllers, h
 < - has_many
 > - belongs_to
 >< - has and belongs to many
+< .. => - has many, through
 
 surveys [id - name - description - status]
-  < questions [id - text - choices]
+  < questions [id - text - choices] (accepts_nested_attributes_for :questions)
+  < users
+
+  questions [id - text]
+    < responses [id - choices] (belongs_to :question, user)
+      < choices [id - text]
+      < response_images [id - image]
+    < users => responses
+
+users [id - name - email - password - address - city - state - zipcode - mobile]
+  < uploads [id - image - user_id]
+  < responses
+  < amenities
+  < problems
+  < ratings [amenity - property_management - neighbourhood]
+
+
+
+CONCERNS:
+---------
+
+1. The excel doc mentions that the user is created upon completing the survey, in this case, where would we be saving all the information collected during the survey if the creation of the user is differed till the end of the survey.
+
+A: Save the survey at each step.
+
+2. The questions differ widely, so implementing each of them as objects of the Question model might be challenging.
+
+    user: :address (text), :city(string), :state(string), :zipcode(string), :name(string), :email(string)
+
+    :tenancy_duration, 
+
+    variables: :lobby, :rooftop_patio, :common_area, :concierge, :maintenance_staff, :superintendants
+
+    amenities: :washer_unit, :washer_building, :refrigerator, :microwave, :oven, :doorman, :elevator, :gym, :pool, :dishwasher, :heater_ac (boolean)
+
+    unit_condition: :room_condition, :bathroom_condition, :kitchen_condition
+
+    management: :response, :response_fix
+
+    rating: :amenities, :property_management, :neighborhood (rating 1 - 5)
+
+    neighborhood: :neighborhood_like, :neighborhood_dislike, :neighborhood_surprise
+
+    building_best: (text) building_worst: (text)
+
+    :winter_electricity_bill (integer) :summer_electricity_bill (integer)
+
+    :user_complaints (text)
+
+    :contact_willingness (boolean)
+
+    conclusion: :referral_likeliness, :user_comments, :user_images
+
+
+DB design till now:
+-------------------
+
+surveys [id - name - description - status]
+  < questions [id - text - choices] (accepts_nested_attributes_for :questions)
   < choices [id - text] => questions
   < responses [id - text] => choices
   < users
+
+  questions [id - text]
+    < responses [id - choices]
+      < choices [id - text]
+      < response_images [id - image]
 
 users [id - full_name - email - password - address - city - state - zipcode - mobile]
   < uploads [id - image - user_id]
@@ -20,14 +84,5 @@ users [id - full_name - email - password - address - city - state - zipcode - mo
   < problems
   < ratings [amenity - property_management - neighbourhood]
 
-questions [id - text]
-  < responses [id - choices]
-    < choices [id - text]
-    < response_images [id - image]
 
-
-CONCERNS:
---------
-
-The excel doc mentions that the user is created upon completing the survey, in this case, where would we be saving all the information collected during the survey if the creation of the user is differed till the end of the survey.
 
