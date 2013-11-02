@@ -7,7 +7,7 @@ one:
   address: MyString
   city: MyString
   state: MyString
-  zipcode: MyString
+  zip: MyString
   phone: MyString
 
 two:
@@ -17,5 +17,5 @@ two:
   address: MyString
   city: MyString
   state: MyString
-  zipcode: MyString
+  zip: MyString
   phone: MyString
