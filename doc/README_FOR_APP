@@ -18,7 +18,7 @@ surveys [id - name - description - status]
       < response_images [id - image]
     < users => responses
 
-users [id - name - email - password - address - city - state - zipcode - mobile]
+users [id - name - email - password - address - city - state - zip - mobile]
   < uploads [id - image - user_id]
   < responses
   < amenities
@@ -36,7 +36,7 @@ A: Save the survey at each step.
 
 2. The questions differ widely, so implementing each of them as objects of the Question model might be challenging.
 
-    user: :address (text), :city(string), :state(string), :zipcode(string), :name(string), :email(string)
+    user: :address (text), :city(string), :state(string), :zip(string), :name(string), :email(string)
 
     :tenancy_duration (string), 
 
@@ -77,7 +77,7 @@ surveys [id - name - description - status]
       < choices [id - text]
       < response_images [id - image]
 
-users [id - full_name - email - password - address - city - state - zipcode - mobile]
+users [id - full_name - email - password - address - city - state - zip - mobile]
   < uploads [id - image - user_id]
   < responses
   < amenities
